@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "Elements of Programming"
+version = "0.0.1"
+description = "practice problems in python"
+authors = ["Yadi Abdalhalim <abdalhalim.yaadata@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

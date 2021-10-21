@@ -1,0 +1,7 @@
+{
+  "name": "EPI",
+  "packageManager": "yarn@3.0.2",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
