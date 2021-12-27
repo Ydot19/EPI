@@ -5,7 +5,7 @@ description = "practice problems in python"
 authors = ["Yadi Abdalhalim <abdalhalim.yaadata@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

@@ -37,16 +37,11 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
  */
 
 
-class TwoSum{
-    
-    /**
-    * @param {number[]} nums
-    * @param {number} target
-    * @return {number[]}
-    */
-    a(nums, target){
-        let already_seen = new Map();
-        for (i = 0; i < nums.length; i++){
+export class TwoSum{
+
+    Optimized(nums: Array<number>, target: number){
+        let already_seen: Map<number, number> = new Map();
+        for (let i = 0; i < nums.length; i++){
             let curr = nums[i]
             let diff = target - curr
             if (already_seen.has(diff)) {
@@ -58,3 +53,4 @@ class TwoSum{
         return null
     }
 }
+
