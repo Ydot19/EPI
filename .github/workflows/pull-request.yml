@@ -38,6 +38,12 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.17.1
+      - name: Create Test Di
+        run: mkdir -p test-results/ts/temp/
       - name: Run Unit Tests
-        run: deno test --unstable ./test/leetcode/
-
+        run: deno test --unstable ./test/leetcode/ --coverage=./test-results/ts/temp/
+      - name: Generate lcov Report
+        run: deno coverage test-results/ts/temp/ --lcov > test-results/ts/leetcode.cov
+      - uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          lcov-file: test-results/ts/leetcode.cov
