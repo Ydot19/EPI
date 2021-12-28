@@ -1,0 +1,62 @@
+name: Unit Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  Python:
+    runs-on: ubuntu-20.04
+    name: Python Tests
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.0
+      - name: Test Results Directory
+        run: mkdir -p test-results/python
+      - name: Initialize Poetry
+        uses: abatilo/actions-poetry@v2.1.4
+        with:
+          poetry-version: 1.1.12
+      - name: Create Poetry Env
+        run: poetry install
+      - name: Run Unit Tests
+        run: poetry run pytest --cov=leetcode test/leetcode --disable-pytest-warnings --junitxml=./test-results/python/leetcode.xml
+      - name: Collect Test Report
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: test-results/**/*.xml
+  Typescript:
+    runs-on: ubuntu-20.04
+    name: Typescript Tests (Deno)
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.17.1
+      - name: Create Test Dir
+        run: mkdir -p test-results/ts/temp/
+      - name: Run Unit Tests
+        run: deno test --unstable ./test/leetcode/ --coverage=./test-results/ts/temp/
+      - name: Generate lcov Report
+        run: deno coverage test-results/ts/temp/ --lcov > test-results/ts/leetcode.cov
+#      - uses: romeovs/lcov-reporter-action@v0.2.16
+#        with:
+#          lcov-file: test-results/ts/leetcode.cov
+  Golang:
+    runs-on: ubuntu-20.04
+    name: Golang Tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17.2
+      - name: Create Test Dir
+        run: mkdir -p test-results/go
+      - name: Run Tests
+        run: go test --count=1 ./test/leetcode/...
