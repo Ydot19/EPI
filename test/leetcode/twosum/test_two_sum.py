@@ -14,7 +14,7 @@ class TestSpecs:
 
 
 def two_sum_tests(func: Callable):
-    class TwoSumTestCases(unittest.TestCase):
+    class TwoSumTest(unittest.TestCase):
 
         def setUp(self) -> None:
             self.func = func
@@ -45,10 +45,10 @@ def two_sum_tests(func: Callable):
                     actual = self.func(tc.nums, tc.target)
                     self.assertCountEqual(tc.expected, actual)
 
-    return TwoSumTestCases
+    return TwoSumTest
 
 
-class TestOptimized(two_sum_tests(TwoSum().a)):
+class TestOptimized(two_sum_tests(TwoSum.optimized)):
     pass
 
 

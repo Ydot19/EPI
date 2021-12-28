@@ -3,7 +3,7 @@ import { TwoSum } from "../../../leetcode/twosum/two_sum.ts"
 
 Deno.test("Two Sums Implementation", async (t)=>{
     // arrange
-    const testClass: TwoSum = new TwoSum();
+    const impl: TwoSum = new TwoSum();
     const expect = chai.expect;
     type testSpec = {
         description: string;
@@ -32,10 +32,10 @@ Deno.test("Two Sums Implementation", async (t)=>{
         },
     )
 
-    for (let tc of testCases) {
+    for (const tc of testCases) {
         await t.step(tc.description, ()=>{
             // act
-            let actual = testClass.Optimized(tc.nums, tc.target)
+            const actual = impl.Optimized(tc.nums, tc.target)
             // assert
             expect(actual).to.have.deep.members(tc.expected)
         })

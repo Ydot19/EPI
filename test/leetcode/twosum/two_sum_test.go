@@ -10,11 +10,11 @@ import (
 
 type TwoSumSuite struct {
 	suite.Suite
-	TestClass twosum.TwoSum
+	Impl twosum.TwoSum
 }
 
 func (suite *TwoSumSuite) SetupTest() {
-	suite.TestClass = twosum.NewTwoSum()
+	suite.Impl = twosum.NewTwoSum()
 }
 
 func (suite *TwoSumSuite) Cases(a func(nums []int, target int) []int) {
@@ -22,41 +22,40 @@ func (suite *TwoSumSuite) Cases(a func(nums []int, target int) []int) {
 		description string
 		nums        []int
 		target      int
-		sol         []int
+		expected    []int
 	}
 	for _, scenario := range []testCases{
 		{
 			description: "Base Case 1",
 			nums:        []int{2, 7, 11, 15},
 			target:      9,
-			sol:         []int{0, 1},
+			expected:    []int{0, 1},
 		},
 		{
 			description: "Base Case 2",
 			nums:        []int{3, 2, 4},
 			target:      6,
-			sol:         []int{1, 2},
+			expected:    []int{1, 2},
 		},
 		{
 			description: "Base Case 3",
 			nums:        []int{3, 3},
 			target:      6,
-			sol:         []int{0, 1},
+			expected:    []int{0, 1},
 		},
 	} {
 		suite.T().Run(scenario.description, func(t *testing.T) {
 			actual := a(scenario.nums, scenario.target)
 			sort.Ints(actual)
-			sort.Ints(scenario.sol)
-			suite.Equal(scenario.sol, actual)
+			sort.Ints(scenario.expected)
+			suite.Equal(scenario.expected, actual)
 		})
 	}
 
 }
 
 func (suite *TwoSumSuite) TestOptimized() {
-	f := suite.TestClass.Optimized
-	suite.Cases(f)
+	suite.Cases(suite.Impl.Optimized)
 }
 
 func TestTwoSum(t *testing.T) {
