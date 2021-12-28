@@ -24,4 +24,9 @@ jobs:
         run: poetry install
       - name: Run Unit Tests
         run: poetry run pytest --cov=leetcode test/leetcode --disable-pytest-warnings --junitxml=./test-results/python/leetcode.xml
+      - name: Collect Test Report
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: test-results/**/*.xml
 
