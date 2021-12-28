@@ -18,5 +18,7 @@ jobs:
         uses: abatilo/actions-poetry@v2.1.4
         with:
           poetry-version: 1.1.12
-      - name: View Poetry --help
-        run: poetry --help
+      - name: Create Poetry Env
+        run: poetry install && poetry shell
+      - name: Run Unit Tests
+        run: python -m unittest -v
