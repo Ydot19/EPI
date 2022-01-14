@@ -36,6 +36,9 @@ a << n     # Bitwise left shift
 ```
 - Same as multiplication
 
+Problems
+- [Count Number of Consistent Strings](../leetcode/countNumberOfConsistentStrings)
+
 
 ## Inclusive OR (in-place bitwise OR operator)
 
@@ -45,3 +48,6 @@ a |= 1
 
 - Same as +=
 - In python 3.9+, can be used to merge two dictionaries
+
+Problems:
+- [Count Number of Consistent Strings](../leetcode/countNumberOfConsistentStrings)
