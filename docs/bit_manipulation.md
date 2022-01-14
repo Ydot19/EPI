@@ -27,3 +27,21 @@ a >> n     # Bitwise right shift
 
 Problems
 - [Number of Steps to Reduce To Zero](../leetcode/numberofStepsToReduceToZero)
+
+
+## Shift Left
+
+```text
+a << n     # Bitwise left shift
+```
+- Same as multiplication
+
+
+## Inclusive OR (in-place bitwise OR operator)
+
+```text
+a |= 1 
+```
+
+- Same as +=
+- In python 3.9+, can be used to merge two dictionaries
