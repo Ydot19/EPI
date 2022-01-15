@@ -16,7 +16,7 @@ a & n     # Bitwise and
 
 Problems
 - [Number of Steps to Reduce To Zero](../leetcode/numberofStepsToReduceToZero)
-
+- [Hamming Distance](../leetcode/hammingDistance)
 
 ## Shift Right
 
@@ -51,3 +51,39 @@ a |= 1
 
 Problems:
 - [Count Number of Consistent Strings](../leetcode/countNumberOfConsistentStrings)
+
+## Special Scenarios
+
+### Remove Least Significant B
+
+```text
+leastSigBit = leastSigBit & (leastSigBit - 1)
+```
+
+
+code example: 
+
+```go
+package example
+
+// xor     = 100 = 0b1100100
+// xor - 1 = 99  = Ob1100011
+// & 1
+//           96  = 0b1100000
+//           95  = 0b1011111
+// & 2
+//           64  = 0b1000000
+//           63  =  0b111111
+// & 3
+//               = 0b0
+///
+func ex(){
+	xor := 100
+	for xor > 0 {
+		xor &= xor - 1
+	}
+}
+```
+
+Problems
+- [Hamming Distance](../leetcode/hammingDistance)
