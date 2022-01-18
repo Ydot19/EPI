@@ -12,11 +12,12 @@ Problems
 ```text
 a & n     # Bitwise and
 ```
-- ```a & 1``` returns 1 if odd 0 if even
+- ```a & 1``` returns 1 if odd 0 if even, same as write `a % 2` (a modulo 2)
 
 Problems
 - [Number of Steps to Reduce To Zero](../leetcode/numberofStepsToReduceToZero)
 - [Hamming Distance](../leetcode/hammingDistance)
+- [Counting Bits](../leetcode/countingBits)
 
 ## Shift Right
 
