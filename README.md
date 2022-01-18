@@ -2,10 +2,6 @@
 
 ## Code Element
 
-Week 1:
-Goals
-- Primitive Types
-- Arrays
-- Strings
-
-## Design Element
+- Bit Manipulation (Current)
+- Sliding Window (next)
+- Two Pointer (next)
