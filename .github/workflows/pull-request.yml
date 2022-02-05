@@ -44,11 +44,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.17.1
+          deno-version: v1.18.1
       - name: Create Test Dir
         run: mkdir -p test-results/ts/temp/
       - name: Run Unit Tests
-        run: deno test --unstable ./test/leetcode/ --coverage=./test-results/ts/temp/
+        run: deno test ./test/leetcode/ --coverage=./test-results/ts/temp/
       - name: Generate lcov Report
         run: deno coverage test-results/ts/temp/ --lcov > test-results/ts/leetcode.cov
 #      - uses: romeovs/lcov-reporter-action@v0.2.16
@@ -62,7 +62,7 @@ jobs:
       - name: Setup go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.17.2
+          go-version: 1.17.6
       - name: Create Test Dir
         run: mkdir -p test-results/go
       - name: Run Tests

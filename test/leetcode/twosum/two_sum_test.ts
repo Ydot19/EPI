@@ -5,13 +5,13 @@ Deno.test("Two Sums Implementation", async (t)=>{
     // arrange
     const impl: TwoSum = new TwoSum();
     const expect = chai.expect;
-    type testSpec = {
+    type testCase = {
         description: string;
         nums: Array<number>;
         target: number;
         expected: Array<number>;
     }
-    const testCases: Array<testSpec> = new Array<testSpec>(
+    const testCases: Array<testCase> = new Array<testCase>(
         {
             description: "Base Case A",
             nums: [2,7,11,15],
