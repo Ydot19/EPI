@@ -18,13 +18,13 @@ func (suite *TwoSumSuite) SetupTest() {
 }
 
 func (suite *TwoSumSuite) Cases(a func(nums []int, target int) []int) {
-	type testCases struct {
+	type testCase struct {
 		description string
 		nums        []int
 		target      int
 		expected    []int
 	}
-	for _, scenario := range []testCases{
+	for _, scenario := range []testCase{
 		{
 			description: "Base Case 1",
 			nums:        []int{2, 7, 11, 15},

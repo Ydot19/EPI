@@ -6,7 +6,7 @@ import unittest
 
 
 @dataclass(frozen=True)
-class TestSpecs:
+class TestCase:
     description: str
     nums: List[int]
     target: int
@@ -18,20 +18,20 @@ def two_sum_tests(func: Callable):
 
         def setUp(self) -> None:
             self.func = func
-            self.test_cases: List[TestSpecs] = [
-                TestSpecs(
+            self.test_cases: List[TestCase] = [
+                TestCase(
                     description="Base Case A",
                     nums=[2, 7, 11, 15],
                     target=9,
                     expected=[0, 1]
                 ),
-                TestSpecs(
+                TestCase(
                     description="Base Case B",
                     nums=[3, 2, 4],
                     target=6,
                     expected=[1, 2]
                 ),
-                TestSpecs(
+                TestCase(
                     description="Base Case C",
                     nums=[3, 3],
                     target=6,
