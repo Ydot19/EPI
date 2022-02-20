@@ -3,9 +3,10 @@
 ## Exclusive OR
 
 - One of two bits must be 1 otherwise returns 0
-
+- `a ^ b = b ^ a = ~a & b`
 Problems
 - [Decoded XORed Array](../leetcode/decodedXORedArray)
+- [Number Complement](../leetcode/numberComplement)
 
 ## Bitwise And (&)
 
@@ -18,6 +19,8 @@ Problems
 - [Number of Steps to Reduce To Zero](../leetcode/numberofStepsToReduceToZero)
 - [Hamming Distance](../leetcode/hammingDistance)
 - [Counting Bits](../leetcode/countingBits)
+- [Number Complement](../leetcode/numberComplement)
+
 
 ## Shift Right
 
