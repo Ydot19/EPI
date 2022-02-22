@@ -36,7 +36,8 @@ Deno.test("Test Number Complement Implementation", async(t)=>{
 
     for (const func of testFuncs) {
         for (const tc of testCases){
-            await t.step(tc.description, ()=>{
+            const description = `${func.name}: ${tc.description}`
+            await t.step(description, ()=>{
                 // act
                 const actual = func(tc.num)
                 // assert
